@@ -1,0 +1,394 @@
+/* ============================================
+   BYROEXC — Dashboard Styles
+   ============================================ */
+
+/* ── Dashboard Grid ── */
+.dashboard {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+/* ── Portfolio Value Card ── */
+.portfolio-card {
+  grid-column: 1 / 3;
+  padding: var(--space-2xl);
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.06), rgba(56, 97, 251, 0.04));
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.08), transparent 70%);
+  border-radius: 50%;
+}
+
+.portfolio-card__label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.portfolio-card__value {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+.portfolio-card__change {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.portfolio-card__actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+/* ── Quick Stats Cards ── */
+.quick-stat {
+  padding: var(--space-xl);
+}
+
+.quick-stat__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.quick-stat__icon--btc {
+  background: rgba(247, 147, 26, 0.12);
+  color: #f7931a;
+}
+
+.quick-stat__icon--eth {
+  background: rgba(98, 126, 234, 0.12);
+  color: #627eea;
+}
+
+.quick-stat__label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.quick-stat__value {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+}
+
+.quick-stat__sub {
+  font-size: var(--fs-sm);
+  margin-top: var(--space-xs);
+}
+
+/* ── Holdings Chart Card ── */
+.holdings-card {
+  grid-column: 1 / 3;
+}
+
+.holdings-card .card__body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.holdings-chart-container {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.holdings-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.holdings-chart-center__label {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.holdings-chart-center__value {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.holdings-legend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.holdings-legend__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+}
+
+.holdings-legend__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.holdings-legend__color {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.holdings-legend__coin {
+  font-size: var(--fs-base);
+  font-weight: 500;
+}
+
+.holdings-legend__pct {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.holdings-legend__value {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* ── Watchlist Card ── */
+.watchlist-card {
+  grid-column: 3 / 5;
+  grid-row: 1 / 3;
+}
+
+.watchlist-card .card__body {
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.watchlist-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  transition: background var(--transition-fast);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.watchlist-item:last-child {
+  border-bottom: none;
+}
+
+.watchlist-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.watchlist-item__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  color: white;
+  margin-right: var(--space-md);
+  flex-shrink: 0;
+}
+
+.watchlist-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.watchlist-item__name {
+  font-weight: 600;
+  font-size: var(--fs-base);
+}
+
+.watchlist-item__pair {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.watchlist-item__chart {
+  width: 80px;
+  height: 32px;
+  margin: 0 var(--space-lg);
+}
+
+.watchlist-item__price {
+  text-align: right;
+  min-width: 90px;
+}
+
+.watchlist-item__price-value {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+}
+
+.watchlist-item__change {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* ── Recent Transactions ── */
+.recent-tx-card {
+  grid-column: 1 / 3;
+}
+
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.tx-item:last-child {
+  border-bottom: none;
+}
+
+.tx-item__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tx-item__icon--buy {
+  background: rgba(var(--color-success-rgb), 0.12);
+  color: var(--color-success);
+}
+
+.tx-item__icon--sell {
+  background: rgba(var(--color-danger-rgb), 0.12);
+  color: var(--color-danger);
+}
+
+.tx-item__icon--send {
+  background: rgba(56, 97, 251, 0.12);
+  color: var(--accent-blue);
+}
+
+.tx-item__icon--receive {
+  background: rgba(var(--accent-primary-rgb), 0.12);
+  color: var(--accent-primary);
+}
+
+.tx-item__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tx-item__info {
+  flex: 1;
+}
+
+.tx-item__type {
+  font-weight: 600;
+  font-size: var(--fs-base);
+}
+
+.tx-item__date {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.tx-item__amount {
+  text-align: right;
+}
+
+.tx-item__amount-value {
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.tx-item__amount-usd {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* ── Market Movers ── */
+.movers-card {
+  grid-column: 3 / 5;
+}
+
+.mover-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.mover-item:last-child {
+  border-bottom: none;
+}
+
+.mover-item__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.mover-item__rank {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+  font-weight: 600;
+  width: 20px;
+}
+
+.mover-item__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.mover-item__name {
+  font-weight: 600;
+  font-size: var(--fs-base);
+}
+
+.mover-item__change {
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+}

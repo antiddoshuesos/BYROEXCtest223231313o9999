@@ -1,0 +1,318 @@
+/* ============================================
+   BYROEXC — Wallet Styles
+   ============================================ */
+
+/* ── Wallet Layout ── */
+.wallet-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+/* ── Balance Overview ── */
+.wallet-balance-card {
+  grid-column: 1 / -1;
+  padding: var(--space-2xl);
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.04), rgba(139, 92, 246, 0.04));
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-balance-card::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -15%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06), transparent 70%);
+  border-radius: 50%;
+}
+
+.wallet-balance__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.wallet-balance__label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.wallet-balance__value {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.wallet-balance__btc {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  margin-top: var(--space-xs);
+}
+
+.wallet-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.wallet-action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  transition: all var(--transition-fast);
+}
+
+.wallet-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.wallet-action-btn--send {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.wallet-action-btn--send:hover {
+  background: #00e8b8;
+  box-shadow: 0 4px 20px rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.wallet-action-btn--receive {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.wallet-action-btn--receive:hover {
+  background: #4c73ff;
+  box-shadow: 0 4px 20px rgba(56, 97, 251, 0.3);
+}
+
+.wallet-action-btn--swap {
+  background: var(--accent-purple);
+  color: white;
+}
+
+.wallet-action-btn--swap:hover {
+  background: #9d72f7;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.wallet-action-btn--buy {
+  background: var(--accent-secondary);
+  color: var(--text-inverse);
+}
+
+.wallet-action-btn--buy:hover {
+  background: #ffc61a;
+}
+
+/* ── Asset List ── */
+.asset-list-card {
+  grid-column: 1 / -1;
+}
+
+.asset-list-card .card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asset-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-md);
+  width: 200px;
+}
+
+.asset-search svg {
+  width: 14px;
+  height: 14px;
+  color: var(--text-tertiary);
+}
+
+.asset-search input {
+  font-size: var(--fs-sm);
+  width: 100%;
+}
+
+.asset-row {
+  display: flex;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border-primary);
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.asset-row:last-child {
+  border-bottom: none;
+}
+
+.asset-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.asset-row__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: white;
+  margin-right: var(--space-lg);
+  flex-shrink: 0;
+}
+
+.asset-row__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.asset-row__name {
+  font-weight: 600;
+  font-size: var(--fs-base);
+}
+
+.asset-row__symbol {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+}
+
+.asset-row__chart {
+  width: 100px;
+  height: 36px;
+  margin: 0 var(--space-xl);
+}
+
+.asset-row__balance {
+  text-align: right;
+  min-width: 140px;
+}
+
+.asset-row__amount {
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.asset-row__usd {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.asset-row__change {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+}
+
+.asset-row__actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: var(--space-lg);
+}
+
+/* ── Send/Receive Modal Extras ── */
+.send-receive-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.sr-tab {
+  flex: 1;
+  padding: var(--space-md);
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sr-tab.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl);
+}
+
+.qr-code {
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wallet-address {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  width: 100%;
+}
+
+.wallet-address__text {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wallet-address__copy {
+  color: var(--accent-primary);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.wallet-address__copy:hover {
+  opacity: 0.7;
+}
+
+/* ── Transaction History ── */
+.tx-history-card {
+  grid-column: 1 / -1;
+}
+
+.tx-history-card .card__body {
+  padding: 0;
+}
